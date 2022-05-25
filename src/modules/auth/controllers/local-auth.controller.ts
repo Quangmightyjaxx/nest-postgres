@@ -5,7 +5,7 @@ import { Request, Response } from 'express';
 @Controller('local')
 @UseFilters(LocalAuthExceptionFilter)
 export class LocalAuthController {
-    // @LocalAuth()
+    @LocalAuth()
     @Post('login')
     login(@Res() res: Response) {
         console.log(res);
