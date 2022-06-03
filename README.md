@@ -45,7 +45,6 @@ _Notice: This project is designed to work with both the Web MVC model and the RE
 - You need to install PostgreSQL and Redis by yourself, if you don't want to use Docker.
 
 ```bash
-https://github.com/tranphuquy19/NestJS-EJS-MVC-boilerplate # Clone this repository
 cd NestJS-EJS-MVC-boilerplate # Go to the root of the repository
 
 yarn # Install dependencies

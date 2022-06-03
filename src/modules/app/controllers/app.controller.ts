@@ -16,6 +16,7 @@ export class AppController {
 
     @Get()
     index(@User() user: ReqUser, @Res() res: Response): void {
+        console.log(user);
         if (!user) return res.redirect(LOGIN_PAGE);
         else return res.redirect('/home');
     }
