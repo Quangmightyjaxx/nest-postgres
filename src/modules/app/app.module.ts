@@ -1,8 +1,9 @@
 import { AuthModule } from '@auth/auth.module';
-import { redisPort, redisUrl, roles, WORKING_DIR } from '@config';
+import { redisPort, redisUrl, roles } from '@config';
 // import { FcmModule } from '@doracoder/fcm-nestjs';
 import { FileUploaderModule } from '@file-uploader/file-uploader.module';
 import { LocalesModule } from '@locales/locales.module';
+import { ProfileModule } from '@modules/profile/profile.module';
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -28,6 +29,7 @@ import { AppService } from './services';
         }),
         AuthModule,
         UserModule,
+        ProfileModule,
         FileUploaderModule,
         SitemapModule,
         RedisModule,

@@ -1,4 +1,5 @@
 import { AppRoles } from '@config';
+import { ProfileEntity } from '@modules/profile/entities';
 import { IBaseModel } from '@shared';
 import bcrypt from 'bcrypt';
 import { AvatarGenerator } from 'random-avatar-generator';
@@ -10,6 +11,7 @@ import {
     Column,
     CreateDateColumn,
     Entity,
+    OneToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from 'typeorm';
@@ -45,7 +47,8 @@ export class UserEntity extends BaseEntity implements IBaseModel<IUserModel> {
 
     @Column({ type: 'simple-array', default: AppRoles.CUSTOMER })
     roles: AppRoles[];
-
+    @OneToOne(() => ProfileEntity, (profile) => profile.user)
+    profile: ProfileEntity;
     @CreateDateColumn()
     createdAt: Date;
 

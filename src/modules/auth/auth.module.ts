@@ -1,4 +1,5 @@
 import { jwtSecretKey } from '@config';
+import { ProfileModule } from '@modules/profile/profile.module';
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtAuthStrategy, JwtRefreshStrategy, LocalStrategy } from '@shared';
@@ -9,6 +10,7 @@ import { SessionSerializer } from './session.serializer';
 
 @Module({
     imports: [
+        ProfileModule,
         UserModule,
         JwtModule.register({
             secret: jwtSecretKey,

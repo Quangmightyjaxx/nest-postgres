@@ -36,7 +36,7 @@ export class UserService {
             .grant();
 
         if (permission.granted) {
-            const user = await this.userRepository.findOne(userId);
+            const user = await this.userRepository.findOne(userId, { relations: ['profile'] });
             if (!user) {
                 throw new HttpException(
                     `User with ID: ${userId} not found!`,

@@ -1,22 +1,22 @@
 import { Logger } from '@nestjs/common';
 import { EntityResults, PaginateParams } from '@shared';
 import { EntityRepository, Repository } from 'typeorm';
-import { PostEntity } from '../entities';
+import { ProfileEntity } from '../entities';
 
-@EntityRepository(PostEntity)
-export class PostRepository extends Repository<PostEntity> {
-    private readonly logger = new Logger(PostRepository.name);
-    private readonly SELECT_POST_SCOPE = ['post'];
+@EntityRepository(ProfileEntity)
+export class ProfileRepository extends Repository<ProfileEntity> {
+    private readonly logger = new Logger(ProfileRepository.name);
+    private readonly SELECT_POST_SCOPE = ['profile'];
 
     async findAll({
         order,
         limit,
         page,
-    }: Partial<PaginateParams>): Promise<EntityResults<PostEntity>> {
+    }: Partial<PaginateParams>): Promise<EntityResults<ProfileEntity>> {
         try {
-            const [entities, count] = await this.createQueryBuilder('post')
+            const [entities, count] = await this.createQueryBuilder('profile')
                 .select(this.SELECT_POST_SCOPE)
-                .orderBy('user.createdAt', order)
+                .orderBy('profile.createdAt', order)
                 .skip(limit * (page - 1))
                 .take(limit)
                 .getManyAndCount();
